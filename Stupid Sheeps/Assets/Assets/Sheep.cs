@@ -6,58 +6,64 @@ public class Sheep : MonoBehaviour
 {
     private Rigidbody2D myBody;
     public GameController gameController;
-    public bool canMove = true;
+    private bool canMove = true;
 
-    [SerializeField] private float speed;
     [SerializeField] private bool startToLeft;
+
+    private float speed = 0.3f;
+    private float maxLeftMovingPosition = -6.0f;
+    private float maxRightMovingPosition = 6.0f;
 
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        if (startToLeft == true)
-        {
-            speed = -0.6f;
-        }
-        else
-        {
-            speed = 0.6f;
-        }
+        speed = startToLeft == true ? speed * -1 : speed;
     }
 
     void Update()
     {
-        if(canMove == false)
+        if (canMove == true)
         {
-            return;
+            myBody.velocity = new Vector2(speed, 0f);
         }
-        if (transform.position.x >= 6.0f)
+        else
         {
-            Quaternion rot = Quaternion.Euler(0f, -180f, 0f);
-            this.transform.rotation = rot;
-            speed = -0.6f;
+            myBody.velocity = new Vector2(0f, 0f);
         }
 
-        if (transform.position.x <= -6.0f)
+        if (transform.position.x > maxRightMovingPosition)
         {
-            Quaternion rot = Quaternion.Euler(0f, 0f, 0f);
-            this.transform.rotation = rot;
-            speed = 0.6f;
+            this.SwitchMovingDirection(maxRightMovingPosition);
         }
-        myBody.velocity = new Vector2(speed, myBody.velocity.y);
+
+        if (transform.position.x < maxLeftMovingPosition)
+        {
+            this.SwitchMovingDirection(maxLeftMovingPosition);
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void SwitchMovingDirection(float xPosition)
+    {
+        Vector3 pos = transform.position;
+        pos.x = xPosition;
+        transform.position = pos;
+        float yRotation = xPosition > 0 ? -180f : 0f;
+        Quaternion rot = Quaternion.Euler(0f, yRotation, 0f);
+        transform.rotation = rot;
+        speed *= -1;
+    }
+
+/*    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Saw")
         {
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
         }
-    }
+    }*/
 
     public void setCanMove(bool can)
     {
-        Debug.Log("set can move");
         canMove = can;
     }
 }
