@@ -10,7 +10,7 @@ public class Sheep : MonoBehaviour
 
     [SerializeField] private bool startToLeft;
 
-    private float speed = 0.3f;
+    private float speed = 0.9f;
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
@@ -53,14 +53,14 @@ public class Sheep : MonoBehaviour
         speed *= -1;
     }
 
-/*    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Saw")
+        if (col.gameObject.tag == "Saw")
         {
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
         }
-    }*/
+    }
 
     public void setCanMove(bool can)
     {
