@@ -12,9 +12,23 @@ public class GameController : MonoBehaviour
     public int freezeTimeForSheeps = 3;
 
     public float score = 0f;
+    public float highScore = 0f;
     public Text ScoreText;
+    public Text HighScoreText;
     private bool countScore = true;
 
+    private void Start()
+    {
+        if(PlayerPrefs.HasKey("HighScore") == false)
+        {
+            PlayerPrefs.SetFloat("HighScore", 0f);
+        }
+        else
+        {
+            highScore = PlayerPrefs.GetFloat("HighScore");
+            HighScoreText.text = highScore.ToString("F0");
+        }
+    }
 
     private IEnumerator WaitToUnfreezeSheeps()
     {
@@ -32,9 +46,18 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
+            this.OnGameOver();
         }
         this.HideDot(this.lives);
+    }
+
+    private void OnGameOver()
+    {
+        this.countScore = false;
+        if(score > highScore)
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
+        }
     }
 
     private void moveSheeps(bool move)
@@ -61,10 +84,20 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if(countScore == true)
+        this.updateScores();
+    }
+
+    private void updateScores()
+    {
+        if (countScore == true)
         {
             score += Time.deltaTime;
             ScoreText.text = score.ToString("F0");
+
+            if(score > highScore)
+            {
+                HighScoreText.text = score.ToString("F0");
+            }
         }
     }
 }
