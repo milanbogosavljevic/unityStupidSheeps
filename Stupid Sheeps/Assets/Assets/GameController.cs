@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public List<Sheep> allSheeps;
-    public List<GameObject> lifeDots; 
+    public List<GameObject> lifeDots;
+    public List<float> speedLevels;
+    [SerializeField] List<string> scoreCheckPoints;
 
     public int lives = 3;
     public int freezeTimeForSheeps = 3;
-
+    private int startCounter = 3;
     public float score = 0f;
     public float highScore = 0f;
+
+    private string scoreCheckPoint;
+
     public Text ScoreText;
     public Text HighScoreText;
-    private bool countScore = true;
+    public Text StartCounterText;
+
+    private bool countScore = false;
 
     private void Start()
     {
-        if(PlayerPrefs.HasKey("HighScore") == false)
+        this.SetScoreCheckPoint();
+        if (PlayerPrefs.HasKey("HighScore") == false)
         {
             PlayerPrefs.SetFloat("HighScore", 0f);
         }
@@ -27,6 +36,27 @@ public class GameController : MonoBehaviour
         {
             highScore = PlayerPrefs.GetFloat("HighScore");
             HighScoreText.text = highScore.ToString("F0");
+        }
+
+        StartCounterText.text = startCounter.ToString();
+        InvokeRepeating("CountDownStartTime", 1, 1F);
+    }
+
+    private void SetScoreCheckPoint()
+    {
+        scoreCheckPoint = scoreCheckPoints[0];
+        scoreCheckPoints.RemoveAt(0);
+    }
+
+    private void CountDownStartTime()
+    {
+        startCounter--;
+        StartCounterText.text = startCounter.ToString();
+        if(startCounter == -1)
+        {
+            Destroy(StartCounterText);
+            CancelInvoke();
+            this.moveSheeps(true);
         }
     }
 
@@ -58,6 +88,8 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetFloat("HighScore", score);
         }
+        PlayerPrefs.SetFloat("Score", score);
+        SceneManager.LoadScene(2);
     }
 
     private void moveSheeps(bool move)
@@ -67,6 +99,16 @@ public class GameController : MonoBehaviour
             sheep.setCanMove(move);
         }
         countScore = move;
+    }
+
+    private void ChangeSheepsSpeed()
+    {
+        float newSpeed = speedLevels[0];
+        speedLevels.RemoveAt(0);
+        foreach (Sheep sheep in allSheeps)
+        {
+            sheep.SetSpeed(newSpeed);
+        }
     }
 
     private void HideDot(int ind)
@@ -94,7 +136,13 @@ public class GameController : MonoBehaviour
             score += Time.deltaTime;
             ScoreText.text = score.ToString("F0");
 
-            if(score > highScore)
+            if (ScoreText.text == scoreCheckPoint)
+            {
+                this.SetScoreCheckPoint();
+                this.ChangeSheepsSpeed();
+            }
+
+            if (score > highScore)
             {
                 HighScoreText.text = score.ToString("F0");
             }

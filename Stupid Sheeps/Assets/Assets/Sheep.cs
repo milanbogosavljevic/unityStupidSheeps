@@ -6,11 +6,11 @@ public class Sheep : MonoBehaviour
 {
     private Rigidbody2D myBody;
     public GameController gameController;
-    private bool canMove = true;
+    private bool canMove = false;
 
     [SerializeField] private bool startToLeft;
 
-    private float speed = 0.9f;
+    [SerializeField] private float speed;
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
@@ -59,6 +59,18 @@ public class Sheep : MonoBehaviour
         {
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
+        }
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        if(this.speed > 0)
+        {
+            this.speed = newSpeed;
+        }
+        else
+        {
+            this.speed = (newSpeed * -1);
         }
     }
 
