@@ -10,12 +10,14 @@ public class Sheep : MonoBehaviour
 
     [SerializeField] private bool startToLeft;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float StartingSpeed;
+    private float speed;
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
     void Start()
     {
+        speed = StartingSpeed;
         myBody = GetComponent<Rigidbody2D>();
         speed = startToLeft == true ? speed * -1 : speed;
     }

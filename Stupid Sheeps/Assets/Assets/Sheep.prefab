@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
   startToLeft: 0
-  speed: 0.4
+  StartingSpeed: 0.4
 --- !u!50 &9145341062170372571
 Rigidbody2D:
   serializedVersion: 4

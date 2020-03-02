@@ -6,24 +6,23 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public List<Sheep> allSheeps;
-    public List<GameObject> lifeDots;
-    public List<float> speedLevels;
-    [SerializeField] List<string> scoreCheckPoints;
-
-    public int lives = 3;
-    public int freezeTimeForSheeps = 3;
+    private int lives = 3;
+    private int freezeTimeForSheeps = 3;
     private int startCounter = 3;
-    public float score = 0f;
-    public float highScore = 0f;
-
+    private float score = 0f;
+    private float highScore = 0f;
     private string scoreCheckPoint;
-
-    public Text ScoreText;
-    public Text HighScoreText;
-    public Text StartCounterText;
-
     private bool countScore = false;
+    private bool maxSpeedReached = false;
+
+    [SerializeField] private Text ScoreText;
+    [SerializeField] private Text HighScoreText;
+    [SerializeField] private Text StartCounterText;
+
+    [SerializeField] private List<string> scoreCheckPoints;
+    [SerializeField] private List<Sheep> allSheeps;
+    [SerializeField] private List<GameObject> lifeDots;
+    [SerializeField] private List<float> speedLevels;
 
     private void Start()
     {
@@ -39,7 +38,8 @@ public class GameController : MonoBehaviour
         }
 
         StartCounterText.text = startCounter.ToString();
-        InvokeRepeating("CountDownStartTime", 1, 1F);
+        //InvokeRepeating("CountDownStartTime", 1, 1F);
+        InvokeRepeating("CountDownStartTime", 0.1f, 0.5F);
     }
 
     private void SetScoreCheckPoint()
@@ -109,6 +109,10 @@ public class GameController : MonoBehaviour
         {
             sheep.SetSpeed(newSpeed);
         }
+        if(speedLevels.Count == 0)
+        {
+            this.maxSpeedReached = true;
+        }
     }
 
     private void HideDot(int ind)
@@ -136,11 +140,15 @@ public class GameController : MonoBehaviour
             score += Time.deltaTime;
             ScoreText.text = score.ToString("F0");
 
-            if (ScoreText.text == scoreCheckPoint)
+            if(this.maxSpeedReached == false)
             {
-                this.SetScoreCheckPoint();
-                this.ChangeSheepsSpeed();
+                if (ScoreText.text == scoreCheckPoint)
+                {
+                    this.SetScoreCheckPoint();
+                    this.ChangeSheepsSpeed();
+                }
             }
+
 
             if (score > highScore)
             {
