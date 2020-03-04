@@ -15,6 +15,8 @@ public class Sheep : MonoBehaviour
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
+    [SerializeField] private GameObject disolveParticles;
+
     void Start()
     {
         speed = StartingSpeed;
@@ -59,6 +61,7 @@ public class Sheep : MonoBehaviour
     {
         if (col.gameObject.tag == "Saw")
         {
+            Instantiate(disolveParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
         }
