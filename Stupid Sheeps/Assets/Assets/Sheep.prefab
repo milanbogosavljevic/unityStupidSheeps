@@ -99,7 +99,8 @@ MonoBehaviour:
   gameController: {fileID: 0}
   startToLeft: 0
   StartingSpeed: 0.4
-  disolveParticles: {fileID: 0}
+  disolveParticles: {fileID: 3405165747462113899, guid: fe455c2e43fc1e1408a4994273d10f6d,
+    type: 3}
 --- !u!50 &9145341062170372571
 Rigidbody2D:
   serializedVersion: 4

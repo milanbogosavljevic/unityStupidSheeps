@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    private Rigidbody2D myBody;
     public GameController gameController;
-    private bool canMove = false;
-
+    
     [SerializeField] private bool startToLeft;
-
+    [SerializeField] private GameObject disolveParticles;
     [SerializeField] private float StartingSpeed;
+
     private float speed;
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
-    [SerializeField] private GameObject disolveParticles;
+    private bool canMove = false;
+
+    private Rigidbody2D myBody;
 
     void Start()
     {
@@ -59,11 +60,21 @@ public class Sheep : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Saw")
+        if (col.gameObject.CompareTag("Saw"))
         {
             Instantiate(disolveParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
+            Vector3 pos = transform.position;
+            if (transform.rotation.eulerAngles.y == 0)
+            {
+                pos.x = maxLeftMovingPosition;
+            }
+            else
+            {
+                pos.x = maxRightMovingPosition;
+            }
+            transform.position = pos;
         }
     }
 
@@ -79,7 +90,7 @@ public class Sheep : MonoBehaviour
         }
     }
 
-    public void setCanMove(bool can)
+    public void SetCanMove(bool can)
     {
         canMove = can;
     }

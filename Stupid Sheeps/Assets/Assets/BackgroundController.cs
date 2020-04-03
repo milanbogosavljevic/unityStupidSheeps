@@ -1,0 +1,114 @@
+﻿using UnityEngine;
+
+public class BackgroundController : MonoBehaviour
+{
+    private Rigidbody2D Sun;
+    private Rigidbody2D Moon;
+
+    private Transform SunTransform;
+    private Transform MoonTransform;
+
+    private float sunSpeed = -0.1f;
+    private float moonSpeed = 0.1f;
+    private float alphaSpeedDivider = 150f;
+    private float alphaSpeed;
+    private float SunUpperPosition;
+    private float SunBottomPosition;
+
+    private bool AnimationIsActive = true;
+    private bool IsDayTime = true;
+
+    private Color DayBackgroundColor;
+    private SpriteRenderer DayBackground;
+    private SpriteRenderer DaySky;
+
+    void Start()
+    {
+        Sun = GameObject.Find("sun").GetComponent<Rigidbody2D>();
+        Moon = GameObject.Find("Moon").GetComponent<Rigidbody2D>();
+        SunTransform = GameObject.Find("sun").transform;
+        MoonTransform = GameObject.Find("Moon").transform;
+
+        SunUpperPosition = 3f;
+        SunBottomPosition = -0.5f;
+
+        //DayComponents = GameObject.Find("DayComponents").GetComponentsInChildren<SpriteRenderer>();
+        DayBackground = GameObject.Find("DayBackground").GetComponent<SpriteRenderer>();
+        DaySky = GameObject.Find("DaySky").GetComponent<SpriteRenderer>();
+        alphaSpeed = sunSpeed / alphaSpeedDivider;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (AnimationIsActive)
+        {
+            if (IsDayTime)
+            {
+                MoveSun();
+                UpdateDayComponentsAlpha();
+            }
+            else
+            {
+                MoveMoon();
+            }
+        }
+    }
+
+    void UpdateDayComponentsAlpha()
+    {
+        DayBackgroundColor = DayBackground.material.color;
+        DayBackgroundColor.a += alphaSpeed;
+        DayBackground.material.color = DayBackgroundColor;
+        DaySky.material.color = DayBackgroundColor;
+    }
+
+    private void MoveSun()
+    {
+        Debug.Log("move sun");
+        if(SunTransform.position.y < SunBottomPosition)
+        {
+            IsDayTime = false;
+            sunSpeed = 0f;
+        }
+
+        if(SunTransform.position.y > SunUpperPosition)
+        {
+            SwitchSunDirection();
+        }
+
+        Sun.velocity = new Vector2(0f, sunSpeed);
+    }
+
+    private void MoveMoon()
+    {
+        if (MoonTransform.position.y < SunBottomPosition)
+        {
+            IsDayTime = true;
+        }
+
+        if (MoonTransform.position.y > SunUpperPosition)
+        {
+            SwitchMoonDirection();
+        }
+
+        Moon.velocity = new Vector2(0f, moonSpeed);
+    }
+
+    private void SwitchSunDirection()
+    {
+        Vector3 pos = SunTransform.position;
+        pos.y = pos.y > 0 ? SunUpperPosition : SunBottomPosition;
+        SunTransform.position = pos;
+        sunSpeed *= -1;
+        alphaSpeed *= -1;
+    }
+
+    private void SwitchMoonDirection()
+    {
+        Vector3 pos = MoonTransform.position;
+        pos.y = pos.y > 0 ? SunUpperPosition : SunBottomPosition;
+        MoonTransform.position = pos;
+        moonSpeed *= -1;
+    }
+}

@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private int lives = 3;
-    private int freezeTimeForSheeps = 3;
     private int startCounter = 3;
     private float score = 0f;
     private float highScore = 0f;
+    private float pauseLoadingBarLevel;
     private string scoreCheckPoint;
     private bool countScore = false;
     private bool maxSpeedReached = false;
@@ -23,6 +23,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Sheep> allSheeps;
     [SerializeField] private List<GameObject> lifeDots;
     [SerializeField] private List<float> speedLevels;
+    [SerializeField] private List<Saw> allSaws;
+    [SerializeField] private List<Button> allButtons;
+
+    [SerializeField] private Image pauseButtonLoadingBar;
+
+    [SerializeField] int pauseFreezeTime;
+    [SerializeField] int pauseCredits;
+    [SerializeField] Button pauseButton;
+
+    [SerializeField] private Text PauseCreditsText;
 
     private void Start()
     {
@@ -40,12 +50,30 @@ public class GameController : MonoBehaviour
         StartCounterText.text = startCounter.ToString();
         //InvokeRepeating("CountDownStartTime", 1, 1F);
         InvokeRepeating("CountDownStartTime", 0.1f, 0.5F);
+
+        this.pauseLoadingBarLevel = 1f / pauseFreezeTime;
+
+        this.UpdatePauseButtonCreditsText();
+    }
+
+    private void UpdatePauseButtonCreditsText()
+    {
+        PauseCreditsText.text = pauseCredits.ToString();
+    }
+
+    private void Update()
+    {
+        this.updateScores();
     }
 
     private void SetScoreCheckPoint()
     {
         scoreCheckPoint = scoreCheckPoints[0];
         scoreCheckPoints.RemoveAt(0);
+        if(scoreCheckPoints.Count == 0)
+        {
+            this.maxSpeedReached = true;
+        }
     }
 
     private void CountDownStartTime()
@@ -56,81 +84,8 @@ public class GameController : MonoBehaviour
         {
             Destroy(StartCounterText);
             CancelInvoke();
-            this.moveSheeps(true);
+            this.MoveSheeps(true);
         }
-    }
-
-    private IEnumerator WaitToUnfreezeSheeps()
-    {
-        yield return new WaitForSeconds(freezeTimeForSheeps);
-        this.moveSheeps(true);
-    }
-
-    public void SheepCollideWithSaw()
-    {
-        this.moveSheeps(false);
-        this.lives--;
-        if(this.lives > 0)
-        {          
-            StartCoroutine(WaitToUnfreezeSheeps());
-        }
-        else
-        {
-            this.OnGameOver();
-        }
-        this.HideDot(this.lives);
-    }
-
-    private void OnGameOver()
-    {
-        this.countScore = false;
-        if(score > highScore)
-        {
-            PlayerPrefs.SetFloat("HighScore", score);
-        }
-        PlayerPrefs.SetFloat("Score", score);
-        SceneManager.LoadScene(2);
-    }
-
-    private void moveSheeps(bool move)
-    {
-        foreach (Sheep sheep in allSheeps)
-        {
-            sheep.setCanMove(move);
-        }
-        countScore = move;
-    }
-
-    private void ChangeSheepsSpeed()
-    {
-        float newSpeed = speedLevels[0];
-        speedLevels.RemoveAt(0);
-        foreach (Sheep sheep in allSheeps)
-        {
-            sheep.SetSpeed(newSpeed);
-        }
-        if(speedLevels.Count == 0)
-        {
-            this.maxSpeedReached = true;
-        }
-    }
-
-    private void HideDot(int ind)
-    {
-        this.lifeDots[ind].SetActive(false);
-    }
-
-    private void ResetDots()
-    {
-        foreach(GameObject dot in lifeDots)
-        {
-            dot.SetActive(true);
-        }
-    }
-
-    private void Update()
-    {
-        this.updateScores();
     }
 
     private void updateScores()
@@ -140,7 +95,7 @@ public class GameController : MonoBehaviour
             score += Time.deltaTime;
             ScoreText.text = score.ToString("F0");
 
-            if(this.maxSpeedReached == false)
+            if (this.maxSpeedReached == false)
             {
                 if (ScoreText.text == scoreCheckPoint)
                 {
@@ -155,5 +110,135 @@ public class GameController : MonoBehaviour
                 HighScoreText.text = score.ToString("F0");
             }
         }
+    }
+
+    /*    private IEnumerator WaitToUnfreezeSheeps()
+        {
+            yield return new WaitForSeconds(5);
+            this.MoveSheeps(true);
+        }*/
+
+    public void OnParticlesAnimationDone()
+    {
+        if (this.lives > 0)
+        {
+            //StartCoroutine(WaitToUnfreezeSheeps());
+            this.ReactivateSheep();
+            this.MoveSheeps(true);
+        }
+        else
+        {
+            this.OnGameOver();
+        }
+    }
+
+    private void OnGameOver()
+    {
+        this.countScore = false;
+        if(score > highScore)
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
+        }
+        PlayerPrefs.SetFloat("Score", score);
+        SceneManager.LoadScene(2);
+    }
+
+    private void DisableAllButtons()
+    {
+        foreach (Button button in allButtons)
+        {
+            button.interactable = false;
+        }
+    }
+
+    private void MoveSheeps(bool move)
+    {
+        foreach (Sheep sheep in allSheeps)
+        {
+            sheep.SetCanMove(move);
+        }
+        countScore = move;
+    }
+
+    public void ReactivateSheep()
+    {
+        foreach (Sheep sheep in allSheeps)
+        {
+            if(sheep.gameObject.activeSelf == false)
+            {
+                sheep.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void ChangeSheepsSpeed()
+    {
+        float newSpeed = speedLevels[0];
+        speedLevels.RemoveAt(0);
+        foreach (Sheep sheep in allSheeps)
+        {
+            sheep.SetSpeed(newSpeed);
+        }
+    }
+
+    public void SheepCollideWithSaw()
+    {
+        this.MoveSheeps(false);
+        this.lives--;
+        this.HideDot(this.lives);
+        if(this.lives < 1)
+        {
+            this.DisableAllButtons();
+        }
+    }
+
+    private void HideDot(int ind)
+    {
+        this.lifeDots[ind].SetActive(false);
+    }
+
+    public void PauseButtonHandler()
+    {
+        if(this.pauseCredits > 0)
+        {
+            pauseButton.interactable = false;
+            this.pauseCredits--;
+            this.UpdatePauseButtonCreditsText();
+            this.PauseSaws(true);
+            StartCoroutine(WaitToUnpauseSaw());
+            this.StartPauseButtonLoadingAnimation();
+        }
+    }
+
+    private IEnumerator WaitToUnpauseSaw()
+    {
+        yield return new WaitForSeconds(this.pauseFreezeTime);
+        this.PauseSaws(false);
+    }
+
+    private void PauseSaws(bool pause)
+    {
+        foreach (Saw saw in this.allSaws)
+        {
+            saw.PauseSaw(pause);
+        }
+    }
+
+    private void StartPauseButtonLoadingAnimation()
+    {
+        //pauseButtonLoadingBar.fillAmount = 0;
+        InvokeRepeating("AnimatePauseButtonLoadingBar", 0f, 1F);
+    }
+
+    private void AnimatePauseButtonLoadingBar()
+    {
+        if (pauseButtonLoadingBar.fillAmount == 1f)
+        {
+            pauseButtonLoadingBar.fillAmount = 0;
+            CancelInvoke();
+            pauseButton.interactable = true;
+            return;
+        }
+        pauseButtonLoadingBar.fillAmount += this.pauseLoadingBarLevel;
     }
 }

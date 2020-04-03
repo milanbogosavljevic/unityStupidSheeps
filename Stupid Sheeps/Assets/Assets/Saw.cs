@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Saw : MonoBehaviour
 {
@@ -10,16 +12,24 @@ public class Saw : MonoBehaviour
 
     private float rotationSpeed = 550f;
 
-    
-    void Start()
+    private Collider2D SawCollider;
+
+    private void Start()
     {
-        //myBody = GetComponent<Rigidbody2D>();
+        SawCollider = GetComponent<Collider2D>();
     }
 
-    
-    void Update()
+    private void Update()
     {
-        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        if(SawCollider.enabled)
+        {
+            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    public void PauseSaw(bool pause)
+    {
+        GetComponent<Collider2D>().enabled = !pause;
     }
 
     public void MoveSaw()
