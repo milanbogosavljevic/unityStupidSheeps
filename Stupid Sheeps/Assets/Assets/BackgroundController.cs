@@ -43,6 +43,7 @@ public class BackgroundController : MonoBehaviour
     {
         if (AnimationIsActive)
         {
+
             if (IsDayTime)
             {
                 MoveSun();
@@ -58,26 +59,43 @@ public class BackgroundController : MonoBehaviour
     void UpdateDayComponentsAlpha()
     {
         DayBackgroundColor = DayBackground.material.color;
+
+        if(DayBackgroundColor.a > 1)
+        {
+            DayBackgroundColor.a = 1;
+        }
+        if (DayBackgroundColor.a < 0)
+        {
+            DayBackgroundColor.a = 0;
+        }
+
         DayBackgroundColor.a += alphaSpeed;
         DayBackground.material.color = DayBackgroundColor;
-        DaySky.material.color = DayBackgroundColor;
+        DaySky.material.color = DayBackgroundColor;           
     }
 
     private void MoveSun()
     {
-        Debug.Log("move sun");
+        //Debug.Log(SunTransform.position.y);
         if(SunTransform.position.y < SunBottomPosition)
         {
             IsDayTime = false;
-            sunSpeed = 0f;
+            SwitchSunDirection();
         }
 
-        if(SunTransform.position.y > SunUpperPosition)
+        if (SunTransform.position.y > SunUpperPosition)
         {
             SwitchSunDirection();
         }
 
-        Sun.velocity = new Vector2(0f, sunSpeed);
+        if (IsDayTime)
+        {
+            Sun.velocity = new Vector2(0f, sunSpeed);
+        }
+        else
+        {
+            Sun.velocity = new Vector2(0f, 0f);
+        }
     }
 
     private void MoveMoon()
@@ -85,6 +103,7 @@ public class BackgroundController : MonoBehaviour
         if (MoonTransform.position.y < SunBottomPosition)
         {
             IsDayTime = true;
+            SwitchMoonDirection();
         }
 
         if (MoonTransform.position.y > SunUpperPosition)
@@ -92,7 +111,14 @@ public class BackgroundController : MonoBehaviour
             SwitchMoonDirection();
         }
 
-        Moon.velocity = new Vector2(0f, moonSpeed);
+        if (IsDayTime)
+        {
+            Moon.velocity = new Vector2(0f, 0f);
+        }
+        else
+        {
+            Moon.velocity = new Vector2(0f, moonSpeed);
+        }
     }
 
     private void SwitchSunDirection()

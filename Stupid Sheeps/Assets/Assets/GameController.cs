@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Text PauseCreditsText;
 
+    [SerializeField] private SpeedFinger SpeedFinger;
+
     private void Start()
     {
         this.SetScoreCheckPoint();
@@ -74,6 +76,7 @@ public class GameController : MonoBehaviour
         {
             this.maxSpeedReached = true;
         }
+        SpeedFinger.SetFingerSpeed(scoreCheckPoint);
     }
 
     private void CountDownStartTime()
@@ -85,6 +88,7 @@ public class GameController : MonoBehaviour
             Destroy(StartCounterText);
             CancelInvoke();
             this.MoveSheeps(true);
+            SpeedFinger.RunAnimation(true);
         }
     }
 

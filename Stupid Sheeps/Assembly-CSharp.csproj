@@ -71,6 +71,7 @@
     <Compile Include="Assets\Assets\Scene2Assets\RestartButton.cs" />
     <Compile Include="Assets\Assets\Scene2Assets\ScoreTextSetter.cs" />
     <Compile Include="Assets\Assets\Sheep.cs" />
+    <Compile Include="Assets\Assets\SpeedFinger.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

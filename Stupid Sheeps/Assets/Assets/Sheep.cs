@@ -8,7 +8,7 @@ public class Sheep : MonoBehaviour
     
     [SerializeField] private bool startToLeft;
     [SerializeField] private GameObject disolveParticles;
-    [SerializeField] private float StartingSpeed;
+    [SerializeField] public float StartingSpeed;
 
     private float speed;
     private float maxLeftMovingPosition = -6.0f;
