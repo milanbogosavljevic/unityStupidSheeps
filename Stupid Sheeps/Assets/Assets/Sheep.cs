@@ -6,7 +6,8 @@ public class Sheep : MonoBehaviour
 {
     public GameController gameController;
     
-    [SerializeField] private bool startToLeft;
+    //[SerializeField] private bool startToLeft;
+    [SerializeField] private bool startToRight;
     [SerializeField] private GameObject disolveParticles;
     [SerializeField] public float StartingSpeed;
 
@@ -22,7 +23,8 @@ public class Sheep : MonoBehaviour
     {
         speed = StartingSpeed;
         myBody = GetComponent<Rigidbody2D>();
-        speed = startToLeft == true ? speed * -1 : speed;
+        //speed = startToLeft == true ? speed * -1 : speed;
+        speed = startToRight == true ? speed : speed * -1;
     }
 
     void Update()
@@ -52,7 +54,8 @@ public class Sheep : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x = xPosition;
         transform.position = pos;
-        float yRotation = xPosition > 0 ? -180f : 0f;
+        //float yRotation = xPosition > 0 ? -180f : 0f;
+        float yRotation = xPosition > 0 ? 0f : -180f;
         Quaternion rot = Quaternion.Euler(0f, yRotation, 0f);
         transform.rotation = rot;
         speed *= -1;
@@ -93,5 +96,6 @@ public class Sheep : MonoBehaviour
     public void SetCanMove(bool can)
     {
         canMove = can;
+        gameObject.GetComponent<Animator>().enabled = can;
     }
 }

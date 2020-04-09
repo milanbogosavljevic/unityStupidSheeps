@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
 
         StartCounterText.text = startCounter.ToString();
         //InvokeRepeating("CountDownStartTime", 1, 1F);
-        InvokeRepeating("CountDownStartTime", 0.1f, 0.5F);
+        InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         this.pauseLoadingBarLevel = 1f / pauseFreezeTime;
 
