@@ -13,17 +13,18 @@ public class SpeedFinger : MonoBehaviour
         if (RotateFinger)
         {
             transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime);
-            Debug.Log(gameObject.transform.localEulerAngles.z);
+            if(gameObject.transform.localEulerAngles.z < 2)
+            {
+                RotateFinger = false;
+            }
         }
     }
 
     public void SetFingerSpeed(string speed)
     {
-        Debug.Log("speed" + speed);
         float speedDivider = float.Parse(speed) - previousSpeed;
         rotationSpeed = fingerSpeed / speedDivider;
         previousSpeed = float.Parse(speed);
-        Debug.Log("divider " + speedDivider);
     }
 
     public void RunAnimation(bool run)

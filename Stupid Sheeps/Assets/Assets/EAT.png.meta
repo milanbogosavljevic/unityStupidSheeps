@@ -1,0 +1,791 @@
+fileFormatVersion: 2
+guid: 80a966464a9bb4149956bd51a4a9064f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -833305345811384464
+    second: EAT_0
+  - first:
+      213: -1602212776788854410
+    second: EAT_1
+  - first:
+      213: -1760671599767217410
+    second: EAT_2
+  - first:
+      213: -3951088495877215692
+    second: EAT_3
+  - first:
+      213: -4146753170173873201
+    second: EAT_4
+  - first:
+      213: 1578513751544248166
+    second: EAT_5
+  - first:
+      213: 1830428449993921021
+    second: EAT_6
+  - first:
+      213: -7617366598339882557
+    second: EAT_7
+  - first:
+      213: -3120360093837285974
+    second: EAT_8
+  - first:
+      213: -4812275439876837952
+    second: EAT_9
+  - first:
+      213: 148849630967240065
+    second: EAT_10
+  - first:
+      213: -5898678256410906867
+    second: EAT_11
+  - first:
+      213: -276233534287865577
+    second: EAT_12
+  - first:
+      213: 4218017098407384820
+    second: EAT_13
+  - first:
+      213: 1290180982527676541
+    second: EAT_14
+  - first:
+      213: -2848998036194501913
+    second: EAT_15
+  - first:
+      213: -711073478883812576
+    second: EAT_16
+  - first:
+      213: -1456197779300835639
+    second: EAT_17
+  - first:
+      213: -6982193227879866398
+    second: EAT_18
+  - first:
+      213: 428044274315363850
+    second: EAT_19
+  - first:
+      213: -3303806412883023486
+    second: EAT_20
+  - first:
+      213: -7066203255234831603
+    second: EAT_21
+  - first:
+      213: 8891572812355898265
+    second: EAT_22
+  - first:
+      213: 2789843545088764669
+    second: EAT_23
+  - first:
+      213: -4858798242252241896
+    second: EAT_24
+  - first:
+      213: 7634735176059351206
+    second: EAT_0
+  - first:
+      213: 6587268272716434250
+    second: EAT_1
+  - first:
+      213: -5933532266054128001
+    second: EAT_2
+  - first:
+      213: 4806619780221273076
+    second: EAT_3
+  - first:
+      213: 4290689235679575616
+    second: EAT_4
+  - first:
+      213: 6634695457257829231
+    second: EAT_5
+  - first:
+      213: -7055559655365792391
+    second: EAT_6
+  - first:
+      213: -171734436531565300
+    second: EAT_7
+  - first:
+      213: 6739165129168780987
+    second: EAT_8
+  - first:
+      213: -7046955503163258986
+    second: EAT_9
+  - first:
+      213: -6368710316465783819
+    second: EAT_10
+  - first:
+      213: 2172997034960457925
+    second: EAT_11
+  - first:
+      213: 5003326973071071772
+    second: EAT_12
+  - first:
+      213: -2154610253727024406
+    second: EAT_13
+  - first:
+      213: -242788815371005208
+    second: EAT_14
+  - first:
+      213: -7396328597741168736
+    second: EAT_15
+  - first:
+      213: -5990202729051720727
+    second: EAT_16
+  - first:
+      213: -6205296075608280155
+    second: EAT_17
+  - first:
+      213: -294404568123828660
+    second: EAT_18
+  - first:
+      213: -7360771235036686498
+    second: EAT_19
+  - first:
+      213: 5343454072596845689
+    second: EAT_20
+  - first:
+      213: 5717849503923190058
+    second: EAT_21
+  - first:
+      213: -3959284055754671351
+    second: EAT_22
+  - first:
+      213: 2514733646126270985
+    second: EAT_23
+  - first:
+      213: 5459139668338825397
+    second: EAT_24
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EAT_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1452
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0723b213704f960800000000000000
+      internalID: 7634735176059351206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_1
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1452
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4bc67bd79daa6b50800000000000000
+      internalID: 6587268272716434250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1452
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e668a57dbd7ada0800000000000000
+      internalID: -5933532266054128001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_3
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1452
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3847a393b84b240800000000000000
+      internalID: 4806619780221273076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_4
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 1452
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ef54670279b8b30800000000000000
+      internalID: 4290689235679575616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1089
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6330c2cd5c231c50800000000000000
+      internalID: 6634695457257829231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1089
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d285a10ed951e90800000000000000
+      internalID: -7055559655365792391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_7
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1089
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d85da9070ed9df0800000000000000
+      internalID: -171734436531565300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_8
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1089
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbefdc6baf2568d50800000000000000
+      internalID: 6739165129168780987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_9
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 1089
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69748f56e4f243e90800000000000000
+      internalID: -7046955503163258986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 726
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbf0b5c5bbcd97a0800000000000000
+      internalID: -6368710316465783819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_11
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 726
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c09bce4a49082e10800000000000000
+      internalID: 2172997034960457925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_12
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 726
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a180d8f536f6540800000000000000
+      internalID: 5003326973071071772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_13
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 726
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeabf2dc3694912e0800000000000000
+      internalID: -2154610253727024406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_14
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 726
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e29f58dbd071acf0800000000000000
+      internalID: -242788815371005208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 363
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a71399e356fa5990800000000000000
+      internalID: -7396328597741168736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_16
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 363
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3fb4afa568edca0800000000000000
+      internalID: -5990202729051720727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_17
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 363
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a33e37a81c52e9a0800000000000000
+      internalID: -6205296075608280155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_18
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 363
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c461ab8ea901aebf0800000000000000
+      internalID: -294404568123828660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_19
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 363
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5799be8f8949d990800000000000000
+      internalID: -7360771235036686498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974dfbe0b23c72a40800000000000000
+      internalID: 5343454072596845689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_21
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 0
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a293c7054d1e95f40800000000000000
+      internalID: 5717849503923190058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_22
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 0
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bffd3e02ccd09c0800000000000000
+      internalID: -3959284055754671351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_23
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 0
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a44127de026e220800000000000000
+      internalID: 2514733646126270985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EAT_24
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 0
+        width: 419
+        height: 363
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b85496ca92c2cb40800000000000000
+      internalID: 5459139668338825397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

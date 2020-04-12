@@ -6,30 +6,34 @@ public class Sheep : MonoBehaviour
 {
     public GameController gameController;
     
-    //[SerializeField] private bool startToLeft;
     [SerializeField] private bool startToRight;
     [SerializeField] private GameObject disolveParticles;
     [SerializeField] public float StartingSpeed;
+    [SerializeField] private float EatingTime;
 
     private float speed;
     private float maxLeftMovingPosition = -6.0f;
     private float maxRightMovingPosition = 6.0f;
 
     private bool canMove = false;
+    private bool eatingAnimationIsActive = false;
 
     private Rigidbody2D myBody;
+
+    private Animator Animator;
 
     void Start()
     {
         speed = StartingSpeed;
         myBody = GetComponent<Rigidbody2D>();
-        //speed = startToLeft == true ? speed * -1 : speed;
         speed = startToRight == true ? speed : speed * -1;
+
+        Animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (canMove == true)
+        if (canMove == true && eatingAnimationIsActive == false)
         {
             myBody.velocity = new Vector2(speed, 0f);
         }
@@ -54,7 +58,6 @@ public class Sheep : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x = xPosition;
         transform.position = pos;
-        //float yRotation = xPosition > 0 ? -180f : 0f;
         float yRotation = xPosition > 0 ? 0f : -180f;
         Quaternion rot = Quaternion.Euler(0f, yRotation, 0f);
         transform.rotation = rot;
@@ -96,6 +99,30 @@ public class Sheep : MonoBehaviour
     public void SetCanMove(bool can)
     {
         canMove = can;
-        gameObject.GetComponent<Animator>().enabled = can;
+        Animator.enabled = can;
+    }
+
+    private void OnMouseDown()
+    {
+        if (gameController.CanPauseSheep())
+        {
+            eatingAnimationIsActive = true;
+            Animator.SetBool("isEatingStart", true);
+            StartCoroutine(StartWalking());
+            gameController.StartPauseSheepLoadingAnimation();
+        }
+    }
+
+    private IEnumerator StartWalking()
+    {
+        yield return new WaitForSeconds(EatingTime);
+        Animator.SetBool("isEatingEnd", true);
+        Animator.SetBool("isEatingStart", false);
+    }
+
+    // metoda se zove u eventu na poslednjem frejmu EatE animacije u Animation tabu
+    public void EatingAnimationIsDone()
+    {
+        eatingAnimationIsActive = false;
     }
 }

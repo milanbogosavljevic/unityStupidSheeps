@@ -11,9 +11,11 @@ public class GameController : MonoBehaviour
     private float score = 0f;
     private float highScore = 0f;
     private float pauseLoadingBarLevel;
+    private float pauseSheepLoadingBarLevel;
     private string scoreCheckPoint;
     private bool countScore = false;
     private bool maxSpeedReached = false;
+    public bool canPauseSheep = false;
 
     [SerializeField] private Text ScoreText;
     [SerializeField] private Text HighScoreText;
@@ -27,8 +29,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Button> allButtons;
 
     [SerializeField] private Image pauseButtonLoadingBar;
+    [SerializeField] private Image pauseSheepLoadingBar;
 
     [SerializeField] int pauseFreezeTime;
+    [SerializeField] int pauseSheepFreezeTime;
     [SerializeField] int pauseCredits;
     [SerializeField] Button pauseButton;
 
@@ -54,6 +58,7 @@ public class GameController : MonoBehaviour
         InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         this.pauseLoadingBarLevel = 1f / pauseFreezeTime;
+        pauseSheepLoadingBarLevel = 1f / pauseSheepFreezeTime;
 
         this.UpdatePauseButtonCreditsText();
     }
@@ -89,6 +94,7 @@ public class GameController : MonoBehaviour
             CancelInvoke();
             this.MoveSheeps(true);
             SpeedFinger.RunAnimation(true);
+            StartPauseSheepLoadingAnimation();
         }
     }
 
@@ -244,5 +250,28 @@ public class GameController : MonoBehaviour
             return;
         }
         pauseButtonLoadingBar.fillAmount += this.pauseLoadingBarLevel;
+    }
+
+    public void StartPauseSheepLoadingAnimation()
+    {
+        canPauseSheep = false;
+        InvokeRepeating("AnimatePauseSheepLoadingBar", 0f, 1F);
+    }
+
+    private void AnimatePauseSheepLoadingBar()
+    {
+        if (pauseSheepLoadingBar.fillAmount == 1f)
+        {
+            pauseSheepLoadingBar.fillAmount = 0;
+            CancelInvoke();
+            canPauseSheep = true;
+            return;
+        }
+        pauseSheepLoadingBar.fillAmount += pauseSheepLoadingBarLevel;
+    }
+
+    public bool CanPauseSheep()
+    {
+        return canPauseSheep;
     }
 }
