@@ -11,7 +11,9 @@ public class GameController : MonoBehaviour
     private float score = 0f;
     private float highScore = 0f;
     private float pauseLoadingBarLevel;
+    private float pauseLoadingBarInterval;
     private float pauseSheepLoadingBarLevel;
+    private float pauseSheepLoadingBarInterval;
     private string scoreCheckPoint;
     private bool countScore = false;
     private bool maxSpeedReached = false;
@@ -57,8 +59,11 @@ public class GameController : MonoBehaviour
         //InvokeRepeating("CountDownStartTime", 1, 1F);
         InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
-        this.pauseLoadingBarLevel = 1f / pauseFreezeTime;
-        pauseSheepLoadingBarLevel = 1f / pauseSheepFreezeTime;
+        pauseSheepLoadingBarInterval = 0.05f;
+        pauseLoadingBarInterval = 0.05f;
+
+        this.pauseLoadingBarLevel = (1f / pauseFreezeTime) * pauseLoadingBarInterval;
+        pauseSheepLoadingBarLevel = (1f / pauseSheepFreezeTime) * pauseSheepLoadingBarInterval;
 
         this.UpdatePauseButtonCreditsText();
     }
@@ -237,7 +242,7 @@ public class GameController : MonoBehaviour
     private void StartPauseButtonLoadingAnimation()
     {
         //pauseButtonLoadingBar.fillAmount = 0;
-        InvokeRepeating("AnimatePauseButtonLoadingBar", 0f, 1F);
+        InvokeRepeating("AnimatePauseButtonLoadingBar", 0f, pauseLoadingBarInterval);
     }
 
     private void AnimatePauseButtonLoadingBar()
@@ -245,7 +250,7 @@ public class GameController : MonoBehaviour
         if (pauseButtonLoadingBar.fillAmount == 1f)
         {
             pauseButtonLoadingBar.fillAmount = 0;
-            CancelInvoke();
+            CancelInvoke("AnimatePauseButtonLoadingBar");
             pauseButton.interactable = true;
             return;
         }
@@ -255,7 +260,7 @@ public class GameController : MonoBehaviour
     public void StartPauseSheepLoadingAnimation()
     {
         canPauseSheep = false;
-        InvokeRepeating("AnimatePauseSheepLoadingBar", 0f, 1F);
+        InvokeRepeating("AnimatePauseSheepLoadingBar", 0f, pauseSheepLoadingBarInterval);
     }
 
     private void AnimatePauseSheepLoadingBar()
@@ -263,7 +268,7 @@ public class GameController : MonoBehaviour
         if (pauseSheepLoadingBar.fillAmount == 1f)
         {
             pauseSheepLoadingBar.fillAmount = 0;
-            CancelInvoke();
+            CancelInvoke("AnimatePauseSheepLoadingBar");
             canPauseSheep = true;
             return;
         }

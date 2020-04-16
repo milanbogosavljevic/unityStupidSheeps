@@ -124,5 +124,6 @@ public class Sheep : MonoBehaviour
     public void EatingAnimationIsDone()
     {
         eatingAnimationIsActive = false;
+        Animator.SetBool("isEatingEnd", false);
     }
 }

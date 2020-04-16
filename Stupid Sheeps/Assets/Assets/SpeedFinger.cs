@@ -15,7 +15,8 @@ public class SpeedFinger : MonoBehaviour
             transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime);
             if(gameObject.transform.localEulerAngles.z < 2)
             {
-                RotateFinger = false;
+                //RotateFinger = false;
+                transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 4));
             }
         }
     }
