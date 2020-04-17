@@ -56,8 +56,8 @@ public class GameController : MonoBehaviour
         }
 
         StartCounterText.text = startCounter.ToString();
-        //InvokeRepeating("CountDownStartTime", 1, 1F);
-        InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
+        InvokeRepeating("CountDownStartTime", 1, 1F);
+        //InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         pauseSheepLoadingBarInterval = 0.05f;
         pauseLoadingBarInterval = 0.05f;

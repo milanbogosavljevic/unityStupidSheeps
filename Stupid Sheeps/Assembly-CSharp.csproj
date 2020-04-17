@@ -67,8 +67,9 @@
     <Compile Include="Assets\Assets\GameController.cs" />
     <Compile Include="Assets\Assets\ParticleSystemController.cs" />
     <Compile Include="Assets\Assets\Saw.cs" />
+    <Compile Include="Assets\Assets\Scene0Assets\ButtonsController.cs" />
     <Compile Include="Assets\Assets\Scene0Assets\PlayButton.cs" />
-    <Compile Include="Assets\Assets\Scene2Assets\RestartButton.cs" />
+    <Compile Include="Assets\Assets\Scene2Assets\ButtonController.cs" />
     <Compile Include="Assets\Assets\Scene2Assets\ScoreTextSetter.cs" />
     <Compile Include="Assets\Assets\Sheep.cs" />
     <Compile Include="Assets\Assets\SpeedFinger.cs" />

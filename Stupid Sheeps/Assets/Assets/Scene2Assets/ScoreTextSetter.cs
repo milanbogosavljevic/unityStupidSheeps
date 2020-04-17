@@ -5,10 +5,26 @@ public class ScoreTextSetter : MonoBehaviour
 {
     public Text Score;
     private float score;
+    private int counter;
 
     void Start()
     {
+        counter = 0;
         score = PlayerPrefs.GetFloat("Score");
-        Score.text = score.ToString("F0");
+        //Score.text = score.ToString("F0");
+
+        InvokeRepeating("CountScore", 0f, 0.05f);
+    }
+
+    private void CountScore()
+    {
+        Debug.Log("count");
+        counter++;
+        if (Score.text == score.ToString("F0"))
+        {
+            CancelInvoke("CountScore");
+            return;
+        }
+        Score.text = counter.ToString("F0");
     }
 }
