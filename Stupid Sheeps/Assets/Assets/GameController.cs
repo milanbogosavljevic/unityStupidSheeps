@@ -42,6 +42,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private SpeedFinger SpeedFinger;
 
+    [SerializeField] private SoundsController SoundsController;
+
     private void Start()
     {
         this.SetScoreCheckPoint();
@@ -56,8 +58,8 @@ public class GameController : MonoBehaviour
         }
 
         StartCounterText.text = startCounter.ToString();
-        InvokeRepeating("CountDownStartTime", 1, 1F);
-        //InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
+        //InvokeRepeating("CountDownStartTime", 1, 1F);
+        InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         pauseSheepLoadingBarInterval = 0.05f;
         pauseLoadingBarInterval = 0.05f;
@@ -153,6 +155,7 @@ public class GameController : MonoBehaviour
         if(score > highScore)
         {
             PlayerPrefs.SetFloat("HighScore", score);
+            SoundsController.PlayHighScore();
         }
         PlayerPrefs.SetFloat("Score", score);
         SceneManager.LoadScene(2);
@@ -194,6 +197,7 @@ public class GameController : MonoBehaviour
         {
             sheep.SetSpeed(newSpeed);
         }
+        SoundsController.SwitchBackgroundMusic();
     }
 
     public void SheepCollideWithSaw()
@@ -252,6 +256,7 @@ public class GameController : MonoBehaviour
             pauseButtonLoadingBar.fillAmount = 0;
             CancelInvoke("AnimatePauseButtonLoadingBar");
             pauseButton.interactable = true;
+            SoundsController.PlayPauseEnabled();
             return;
         }
         pauseButtonLoadingBar.fillAmount += this.pauseLoadingBarLevel;
@@ -270,6 +275,7 @@ public class GameController : MonoBehaviour
             pauseSheepLoadingBar.fillAmount = 0;
             CancelInvoke("AnimatePauseSheepLoadingBar");
             canPauseSheep = true;
+            SoundsController.PlayEnableEat();
             return;
         }
         pauseSheepLoadingBar.fillAmount += pauseSheepLoadingBarLevel;

@@ -82,6 +82,19 @@ public class Sheep : MonoBehaviour
             }
             transform.position = pos;
         }
+        else
+        {
+            if(col.transform.rotation.eulerAngles.y == transform.rotation.eulerAngles.y)
+            {
+                if(eatingAnimationIsActive == false)
+                {
+                    float yRotation = transform.rotation.eulerAngles.y == 0 ? -180f : 0f;
+                    Quaternion rot = Quaternion.Euler(0f, yRotation, 0f);
+                    transform.rotation = rot;
+                    speed *= -1;
+                }
+            }
+        }
     }
 
     public void SetSpeed(float newSpeed)

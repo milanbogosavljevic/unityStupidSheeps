@@ -9,6 +9,7 @@ public class Saw : MonoBehaviour
     [SerializeField] private float positionLeft;
     [SerializeField] private float positionRight;
     [SerializeField] private float positionY;
+    [SerializeField] private SoundsController SoundsController;
 
     private float rotationSpeed = 550f;
 
@@ -29,11 +30,13 @@ public class Saw : MonoBehaviour
 
     public void PauseSaw(bool pause)
     {
+        SoundsController.PlayClick();
         GetComponent<Collider2D>().enabled = !pause;
     }
 
     public void MoveSaw()
     {
+        SoundsController.PlayClick();
         if (transform.position.x == positionLeft)
         {
             transform.position = new Vector2(positionRight, positionY);        

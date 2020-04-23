@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class ButtonController : MonoBehaviour
 
     public void RestartGame()
     {
-        //RestartButton.interactable = false;
+        RestartButton.interactable = false;
         SceneManager.LoadScene(1);
     }
 }

@@ -7,24 +7,30 @@ public class ScoreTextSetter : MonoBehaviour
     private float score;
     private int counter;
 
+    private AudioSource CountSound;
+
     void Start()
     {
+        CountSound = GetComponent<AudioSource>();
         counter = 0;
         score = PlayerPrefs.GetFloat("Score");
         //Score.text = score.ToString("F0");
 
         InvokeRepeating("CountScore", 0f, 0.05f);
+        CountSound.Play();
     }
 
     private void CountScore()
     {
-        Debug.Log("count");
         counter++;
         if (Score.text == score.ToString("F0"))
         {
+            CountSound.Stop();
             CancelInvoke("CountScore");
             return;
         }
         Score.text = counter.ToString("F0");
+        //CountSound.Stop();
+        //CountSound.Play();
     }
 }
