@@ -9,6 +9,14 @@ public class SoundsController : MonoBehaviour
 
     private int BackgrouMusicPlaying = 0;
 
+    private void Start()
+    {
+        bool MusicIsOn = PlayerPrefs.GetString("MusicPlay") == "on";
+        bool SoundIsOn = PlayerPrefs.GetString("SoundPlay") == "on";
+        SetMusicOn(MusicIsOn);
+        SetSoundOn(SoundIsOn);
+    }
+
     public void SwitchBackgroundMusic()
     {
         if(BackgrouMusicPlaying == 0)// dok ne smislim nesto za 4ti zvuk
@@ -41,5 +49,21 @@ public class SoundsController : MonoBehaviour
     public void PlayHighScore()
     {
         Sounds[3].Play();
+    }
+
+    public void SetSoundOn(bool on)
+    {
+        foreach (AudioSource sound in Sounds)
+        {
+            sound.volume = on ? 1f : 0f;
+        }
+    }
+
+    public void SetMusicOn(bool on)
+    {
+        foreach(AudioSource sound in BackgroundMusics)
+        {
+            sound.volume = on ? 1f : 0f;
+        }
     }
 }

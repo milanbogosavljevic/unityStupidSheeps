@@ -83,7 +83,7 @@ public class Sheep : MonoBehaviour
             transform.position = pos;
         }
         else
-        {
+        {// dodat uslov da bi se izbeglo da se dve ovce poklope
             if(col.transform.rotation.eulerAngles.y == transform.rotation.eulerAngles.y)
             {
                 if(eatingAnimationIsActive == false)

@@ -12,9 +12,9 @@ public class ScoreTextSetter : MonoBehaviour
     void Start()
     {
         CountSound = GetComponent<AudioSource>();
+        CountSound.volume = PlayerPrefs.GetString("SoundPlay") == "on" ? 1f : 0f;
         counter = 0;
         score = PlayerPrefs.GetFloat("Score");
-        //Score.text = score.ToString("F0");
 
         InvokeRepeating("CountScore", 0f, 0.05f);
         CountSound.Play();
@@ -30,7 +30,5 @@ public class ScoreTextSetter : MonoBehaviour
             return;
         }
         Score.text = counter.ToString("F0");
-        //CountSound.Stop();
-        //CountSound.Play();
     }
 }
