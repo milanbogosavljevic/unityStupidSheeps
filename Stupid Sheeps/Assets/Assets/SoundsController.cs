@@ -51,6 +51,11 @@ public class SoundsController : MonoBehaviour
         Sounds[3].Play();
     }
 
+    public void PlayHit()
+    {
+        Sounds[4].Play();
+    }
+
     public void SetSoundOn(bool on)
     {
         foreach (AudioSource sound in Sounds)

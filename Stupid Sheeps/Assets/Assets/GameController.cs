@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private SoundsController SoundsController;
 
+    [SerializeField] private GameObject Menu;
+
     private void Start()
     {
         this.SetScoreCheckPoint();
@@ -58,8 +60,8 @@ public class GameController : MonoBehaviour
         }
 
         StartCounterText.text = startCounter.ToString();
-        //InvokeRepeating("CountDownStartTime", 1, 1F);
-        InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
+        InvokeRepeating("CountDownStartTime", 1, 1F);
+        //InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         pauseSheepLoadingBarInterval = 0.05f;
         pauseLoadingBarInterval = 0.05f;
@@ -202,6 +204,7 @@ public class GameController : MonoBehaviour
 
     public void SheepCollideWithSaw()
     {
+        SoundsController.PlayHit();
         this.MoveSheeps(false);
         this.lives--;
         this.HideDot(this.lives);
@@ -211,6 +214,23 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public float GetSecondSheepXPosition(string SheepTag, float FirstSheepXPosition)
+    {
+        float xPos = 0f;
+        foreach (Sheep sheep in allSheeps)
+        {
+            if (sheep.CompareTag(SheepTag))
+            {
+                Vector3 pos = sheep.transform.position;
+                if (pos.x != FirstSheepXPosition)
+                {
+                    xPos = pos.x;
+                }
+            }
+        }
+        return xPos;
+    }
+
     private void HideDot(int ind)
     {
         this.lifeDots[ind].SetActive(false);
@@ -218,6 +238,7 @@ public class GameController : MonoBehaviour
 
     public void PauseButtonHandler()
     {
+        SoundsController.PlayClick();
         if(this.pauseCredits > 0)
         {
             pauseButton.interactable = false;
@@ -284,5 +305,29 @@ public class GameController : MonoBehaviour
     public bool CanPauseSheep()
     {
         return canPauseSheep;
+    }
+
+    public void ShowPauseMenu()
+    {
+        TogglePauseGame();
+        Menu.gameObject.SetActive(!Menu.gameObject.activeSelf);
+        SoundsController.PlayClick();
+    }
+
+    public void TogglePauseGame()
+    {
+        Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+    }
+
+    public void RestartGame()
+    {
+        TogglePauseGame();
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitToMainMenu()
+    {
+        TogglePauseGame();
+        SceneManager.LoadScene(0);
     }
 }

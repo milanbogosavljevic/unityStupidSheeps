@@ -73,7 +73,7 @@ public class ButtonsController : MonoBehaviour
 
     public void SetSoundInGame(bool on)
     {
-        float xP = on == true ? -0.66f : 0.52f;
+        float xP = on == true ? -0.66f : 0.72f;
         SoundButtonSelector.transform.position = new Vector2(xP, SoundButtonSelector.transform.position.y);
         string SoundPlay = on == true ? "on" : "off";
         PlayerPrefs.SetString("SoundPlay", SoundPlay);
@@ -81,9 +81,14 @@ public class ButtonsController : MonoBehaviour
 
     public void SetMusicInGame(bool on)
     {
-        float xP = on == true ? -0.66f : 0.52f;
+        float xP = on == true ? -0.66f : 0.72f;
         MusicButtonSelector.transform.position = new Vector2(xP, MusicButtonSelector.transform.position.y);
         string MusicPlay = on == true ? "on" : "off";
         PlayerPrefs.SetString("MusicPlay", MusicPlay);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

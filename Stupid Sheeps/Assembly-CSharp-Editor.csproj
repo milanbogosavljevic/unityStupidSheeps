@@ -97,6 +97,9 @@
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+      <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
@@ -108,6 +111,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Enhancer.Editor">
+      <HintPath>C:/UnityProjects/unityStupidSheeps/Stupid Sheeps/Library/ScriptAssemblies/Enhancer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/UnityProjects/2019.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

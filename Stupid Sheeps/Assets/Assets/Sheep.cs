@@ -72,15 +72,17 @@ public class Sheep : MonoBehaviour
             gameObject.SetActive(false);
             gameController.SheepCollideWithSaw();
             Vector3 pos = transform.position;
-            if (transform.rotation.eulerAngles.y == 0)
+
+            float SecondSheepXPosition = gameController.GetSecondSheepXPosition(gameObject.tag, pos.x);
+
+            if(SecondSheepXPosition > 0)
             {
-                pos.x = maxLeftMovingPosition;
+                SwitchMovingDirection(maxLeftMovingPosition);
             }
             else
             {
-                pos.x = maxRightMovingPosition;
+                SwitchMovingDirection(maxRightMovingPosition);
             }
-            transform.position = pos;
         }
         else
         {// dodat uslov da bi se izbeglo da se dve ovce poklope
