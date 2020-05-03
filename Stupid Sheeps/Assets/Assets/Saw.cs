@@ -11,7 +11,7 @@ public class Saw : MonoBehaviour
     [SerializeField] private float positionY;
     [SerializeField] private SoundsController SoundsController;
 
-    private float rotationSpeed = 550f;
+    private const float RotationSpeed = 550f;
 
     private Collider2D SawCollider;
 
@@ -24,7 +24,7 @@ public class Saw : MonoBehaviour
     {
         if(SawCollider.enabled)
         {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward * RotationSpeed * Time.deltaTime);
         }
     }
 
