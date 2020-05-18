@@ -77,6 +77,7 @@ public class ButtonsController : MonoBehaviour
         SoundButtonSelector.transform.position = new Vector2(xP, SoundButtonSelector.transform.position.y);
         string SoundPlay = on == true ? "on" : "off";
         PlayerPrefs.SetString("SoundPlay", SoundPlay);
+        click.volume = on ? 1 : 0;
     }
 
     public void SetMusicInGame(bool on)

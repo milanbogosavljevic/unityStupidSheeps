@@ -22,33 +22,27 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text ScoreText;
     [SerializeField] private Text HighScoreText;
     [SerializeField] private Text StartCounterText;
-
     [SerializeField] private List<string> scoreCheckPoints;
     [SerializeField] private List<Sheep> allSheeps;
     [SerializeField] private List<GameObject> lifeDots;
     [SerializeField] private List<float> speedLevels;
     [SerializeField] private List<Saw> allSaws;
     [SerializeField] private List<Button> allButtons;
-
     [SerializeField] private Image pauseButtonLoadingBar;
     [SerializeField] private Image pauseSheepLoadingBar;
-
     [SerializeField] int pauseFreezeTime;
     [SerializeField] int pauseSheepFreezeTime;
     [SerializeField] int pauseCredits;
     [SerializeField] Button pauseButton;
-
     [SerializeField] private Text PauseCreditsText;
-
     [SerializeField] private SpeedFinger SpeedFinger;
-
     [SerializeField] private SoundsController SoundsController;
-
     [SerializeField] private GameObject Menu;
+    [SerializeField] private GameObject Tutorial;
 
     private void Start()
     {
-        this.SetScoreCheckPoint();
+        SetScoreCheckPoint();
         if (PlayerPrefs.HasKey("HighScore") == false)
         {
             PlayerPrefs.SetFloat("HighScore", 0f);
@@ -60,16 +54,35 @@ public class GameController : MonoBehaviour
         }
 
         StartCounterText.text = startCounter.ToString();
-        InvokeRepeating("CountDownStartTime", 1, 1F);
+        //InvokeRepeating("CountDownStartTime", 1, 1F);
         //InvokeRepeating("CountDownStartTime", 0.1f, 0.1F);
 
         pauseSheepLoadingBarInterval = 0.05f;
         pauseLoadingBarInterval = 0.05f;
 
-        this.pauseLoadingBarLevel = (1f / pauseFreezeTime) * pauseLoadingBarInterval;
+        pauseLoadingBarLevel = (1f / pauseFreezeTime) * pauseLoadingBarInterval;
         pauseSheepLoadingBarLevel = (1f / pauseSheepFreezeTime) * pauseSheepLoadingBarInterval;
 
-        this.UpdatePauseButtonCreditsText();
+        UpdatePauseButtonCreditsText();
+        
+        if (PlayerPrefs.HasKey("ShowTutorial") == false)
+        {
+            PlayerPrefs.SetString("ShowTutorial", "show");
+        }
+        else
+        {
+            if (PlayerPrefs.GetString("ShowTutorial") != "show")
+            {
+                //todo samo za test
+                //Destroy(Tutorial);
+                //StartCountDown();
+            }
+        }
+    }
+
+    public void StartCountDown()
+    {
+        InvokeRepeating("CountDownStartTime", 1, 1F);
     }
 
     private void UpdatePauseButtonCreditsText()

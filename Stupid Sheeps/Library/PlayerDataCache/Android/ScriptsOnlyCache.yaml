@@ -20,6 +20,8 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
+    Enhancer.Editor.dll:
+    - XT.Enhancer.Settings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -69,25 +71,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11162}
     - Class: 114
-      Script: {instanceID: 11358}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11568}
+      Script: {instanceID: 11594}
     - Class: 114
-      Script: {instanceID: 11880}
+      Script: {instanceID: 11914}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12540}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13274}
+      Script: {instanceID: 13350}
     - Class: 114
-      Script: {instanceID: 13444}
+      Script: {instanceID: 13536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -138,49 +140,49 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11162}
     - Class: 114
-      Script: {instanceID: 11358}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11402}
+      Script: {instanceID: 11426}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11850}
     - Class: 114
-      Script: {instanceID: 11880}
+      Script: {instanceID: 11914}
     - Class: 114
-      Script: {instanceID: 11932}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12218}
+      Script: {instanceID: 12264}
     - Class: 114
-      Script: {instanceID: 12258}
-    - Class: 114
-      Script: {instanceID: 12340}
+      Script: {instanceID: 12304}
     - Class: 114
       Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12540}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12546}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 12744}
+      Script: {instanceID: 12596}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13150}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13222}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13346}
     - Class: 114
-      Script: {instanceID: 13416}
+      Script: {instanceID: 13424}
     - Class: 114
-      Script: {instanceID: 13444}
+      Script: {instanceID: 13508}
     - Class: 114
-      Script: {instanceID: 13498}
+      Script: {instanceID: 13536}
+    - Class: 114
+      Script: {instanceID: 13592}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,23 +233,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11162}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11360}
     - Class: 114
-      Script: {instanceID: 11358}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11880}
+      Script: {instanceID: 11914}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12540}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 13076}
     - Class: 114
-      Script: {instanceID: 13444}
+      Script: {instanceID: 13536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1016,4 +1018,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/WelcomeScene.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/GameOverScene.unity
-  playerPath: C:/Users/andre/OneDrive/Desktop/StupidSheeps0.3.aab
+  playerPath: C:/Users/andre/OneDrive/Desktop/StupidSheeps0.4.aab
