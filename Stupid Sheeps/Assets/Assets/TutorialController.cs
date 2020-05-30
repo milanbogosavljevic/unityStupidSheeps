@@ -13,7 +13,7 @@ public class TutorialController : MonoBehaviour
     private bool _showSheepSelectors;
     private bool _showPauseSheepIndicatorSelectors;
     private bool _showSheepSpeedIndicatorSelectors;
-    private GameController gameController;
+    private GameController _gameController;
     public Text textField;
     [SerializeField] private Text pageNumberText;
     [SerializeField] private Toggle dontShowToggle;
@@ -34,7 +34,7 @@ public class TutorialController : MonoBehaviour
         _maxLevel = tutorialTexts.Count - 1;
         textField.text = tutorialTexts[_tutorialLevel];
         _UpdatePageNumberText();
-        gameController = FindObjectOfType<GameController>();
+        _gameController = FindObjectOfType<GameController>();
     }
 
     void Update()
@@ -179,7 +179,7 @@ public class TutorialController : MonoBehaviour
     public void QuitTutorial()
     {
         Destroy(gameObject);
-        gameController.StartCountDown();
+        _gameController.StartCountDown();
         if (dontShowToggle.isOn)
         {
             PlayerPrefs.SetString("ShowTutorial", "dontshow");

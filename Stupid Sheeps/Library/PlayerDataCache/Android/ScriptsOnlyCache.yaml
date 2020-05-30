@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - Sheep
     - SoundsController
     - SpeedFinger
+    - TutorialController
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineCollisionImpulseSource
@@ -20,8 +21,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
-    Enhancer.Editor.dll:
-    - XT.Enhancer.Settings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -29,6 +28,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
+    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -48,6 +48,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Scenes/GameOverScene.unity:
     - Class: 1
@@ -71,25 +72,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11162}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11362}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 11412}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 11914}
+      Script: {instanceID: 11884}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12392}
     - Class: 114
-      Script: {instanceID: 12590}
+      Script: {instanceID: 12544}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13450}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -140,49 +141,53 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11162}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11362}
     - Class: 114
-      Script: {instanceID: 11426}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 11412}
     - Class: 114
-      Script: {instanceID: 11850}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 11914}
+      Script: {instanceID: 11884}
     - Class: 114
-      Script: {instanceID: 11966}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12222}
     - Class: 114
-      Script: {instanceID: 12304}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12344}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12392}
     - Class: 114
-      Script: {instanceID: 12590}
+      Script: {instanceID: 12544}
     - Class: 114
-      Script: {instanceID: 12596}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 12800}
+      Script: {instanceID: 12748}
     - Class: 114
-      Script: {instanceID: 13022}
+      Script: {instanceID: 12960}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13346}
+      Script: {instanceID: 13174}
     - Class: 114
-      Script: {instanceID: 13424}
+      Script: {instanceID: 13276}
     - Class: 114
-      Script: {instanceID: 13508}
+      Script: {instanceID: 13348}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13422}
     - Class: 114
-      Script: {instanceID: 13592}
+      Script: {instanceID: 13450}
+    - Class: 114
+      Script: {instanceID: 13472}
+    - Class: 114
+      Script: {instanceID: 13504}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -233,23 +238,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11162}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11380}
+      Script: {instanceID: 11362}
     - Class: 114
-      Script: {instanceID: 11432}
+      Script: {instanceID: 11412}
     - Class: 114
-      Script: {instanceID: 11914}
+      Script: {instanceID: 11884}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12392}
     - Class: 114
-      Script: {instanceID: 12590}
+      Script: {instanceID: 12544}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13450}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -853,6 +858,12 @@ ScriptsOnlyBuild:
     className: SpeedFinger
   - hash:
       serializedVersion: 2
+      Hash: 5ffa54b904ae4ce1ba979d472bcb3f22
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TutorialController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -865,7 +876,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 7d9a859afe5428953013e2e20eb069b6
+      Hash: 7680f7c8186f8945f9ead75b8a5ad4a8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -1018,4 +1029,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/WelcomeScene.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/GameOverScene.unity
-  playerPath: C:/Users/andre/OneDrive/Desktop/StupidSheeps0.4.aab
+  playerPath: C:/Users/andre/OneDrive/Desktop/StupidSheeps0.5.aab

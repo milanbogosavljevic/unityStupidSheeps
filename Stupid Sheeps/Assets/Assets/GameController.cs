@@ -74,8 +74,8 @@ public class GameController : MonoBehaviour
             if (PlayerPrefs.GetString("ShowTutorial") != "show")
             {
                 //todo samo za test
-                //Destroy(Tutorial);
-                //StartCountDown();
+                Destroy(Tutorial);
+                StartCountDown();
             }
         }
     }

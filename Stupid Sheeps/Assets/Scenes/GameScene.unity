@@ -1054,7 +1054,7 @@ MonoBehaviour:
   - Change Saw position by clicking these buttons and save sheep
   - You can pause Saws for some amount of time by clicking this button
   - You can tap on Sheep and stop it for some amount of time
-  - When this bar loads you can tap on Sheep againg
+  - When this bar loads you can tap on Sheep again
   - This show current speed level of Sheep movement
 --- !u!1 &404711089
 GameObject:
